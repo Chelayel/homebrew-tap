@@ -9,22 +9,22 @@
 class Airelay < Formula
   desc "Claude, Gemini and Copilot as CLI coding agents"
   homepage "https://github.com/Chelayel/ai-relay"
-  version "1.8.1"
+  version "1.8.2"
 
   on_macos do
     on_arm do
-      url "https://github.com/Chelayel/ai-relay/releases/download/v1.8.1/airelay-macos-arm64.tar.gz"
-      sha256 "0d860d415beba53a893b8382bd32560b0200794af7f5cbd8fbf2852be8b6bb62"
+      url "https://github.com/Chelayel/ai-relay/releases/download/v1.8.2/airelay-macos-arm64.tar.gz"
+      sha256 "5c00fe4ad8bf99d6ea91801ad74513970f2b1c78d756c60a998acd2e99d86a2d"
     end
     on_intel do
-      url "https://github.com/Chelayel/ai-relay/releases/download/v1.8.1/airelay-macos-x64.tar.gz"
-      sha256 "982425dc676982bb29a4ec3e4fd58580425753b8954a0be71c26a4b377d7f3b0"
+      url "https://github.com/Chelayel/ai-relay/releases/download/v1.8.2/airelay-macos-x64.tar.gz"
+      sha256 "1fd50c2ea23742c7368d34167eaadb8d8a6dca649a0e9da1865ecb2aee9a0185"
     end
   end
 
   on_linux do
-    url "https://github.com/Chelayel/ai-relay/releases/download/v1.8.1/airelay-linux-x64.tar.gz"
-    sha256 "27ea97fda941d23eec4b193f3739c9cb5a41e87a2cc654e6a1c6ad14f938ef37"
+    url "https://github.com/Chelayel/ai-relay/releases/download/v1.8.2/airelay-linux-x64.tar.gz"
+    sha256 "a820f39dda246bc4ccdd77dbe4da4345a11bb6bec6a5813bcdb77b7a827d824b"
   end
 
   def install
