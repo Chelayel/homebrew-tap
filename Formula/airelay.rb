@@ -9,22 +9,22 @@
 class Airelay < Formula
   desc "Claude, Gemini and Copilot as CLI coding agents"
   homepage "https://github.com/Chelayel/ai-relay"
-  version "1.1.0"
+  version "1.7.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/Chelayel/ai-relay/releases/download/v1.1.0/airelay-macos-arm64.tar.gz"
-      sha256 "03b922ce13cbd2fb0f67feed80ca6dbba36fb0e38f4aa768cc52aa2ade0c3cb7"
+      url "https://github.com/Chelayel/ai-relay/releases/download/v1.7.0/airelay-macos-arm64.tar.gz"
+      sha256 "0db870938753e1cfaf521dbb6bb43bb4dca9e3e2fc43735e1a94db54d5a0badc"
     end
     on_intel do
-      url "https://github.com/Chelayel/ai-relay/releases/download/v1.1.0/airelay-macos-x64.tar.gz"
-      sha256 "123e1e5b1eea444ff141e14d84394f4b1a94ae15ab5f276c13d4d912c020bb78"
+      url "https://github.com/Chelayel/ai-relay/releases/download/v1.7.0/airelay-macos-x64.tar.gz"
+      sha256 "be8036c9c1a5f260f4937c644e14cbc898a49d3d69a38c8feb40e53e66b597ea"
     end
   end
 
   on_linux do
-    url "https://github.com/Chelayel/ai-relay/releases/download/v1.1.0/airelay-linux-x64.tar.gz"
-    sha256 "8002a2f8b651d5b7f03e73893b875e34edd611c08fd8703db5e13ec3cd8c7678"
+    url "https://github.com/Chelayel/ai-relay/releases/download/v1.7.0/airelay-linux-x64.tar.gz"
+    sha256 "662254741a01d653994a8daa3d549f6e4314d5fd807de04bf8dde14f78166045"
   end
 
   def install
@@ -39,6 +39,31 @@ class Airelay < Formula
       #!/bin/sh
       exec "#{launcher}" "$@"
     SH
+  end
+
+  # Homebrew only writes under its own prefix, so it cannot remove an airelay
+  # that another route installed — install.sh's in ~/.local/bin, the .pkg's in
+  # /Applications, the .deb's in /opt — and the first of those usually comes
+  # before Homebrew's bin on PATH, so the old copy keeps running after a
+  # successful install. Say so, with the command that fixes it.
+  def caveats
+    script = File.join(Dir.home, ".local", "bin", "airelay")
+    others = []
+    if File.exist?(script) || File.symlink?(script)
+      others << "#{script} (install.sh):\n    rm #{script} && rm -rf #{File.join(Dir.home, ".local", "share", "airelay")}"
+    end
+    if File.directory?("/Applications/airelay.app")
+      others << "/Applications/airelay.app (the .pkg installer):\n    sudo rm -rf /Applications/airelay.app /usr/local/bin/airelay && sudo pkgutil --forget com.chelayel.airelay"
+    end
+    others << "/opt/airelay (the .deb package):\n    sudo apt remove airelay" if File.directory?("/opt/airelay")
+    return if others.empty?
+
+    <<~EOS
+      airelay is also installed another way. Whichever comes first on your PATH
+      is the one that runs, so remove the one you no longer want:
+        #{others.join("\n  ")}
+      Then run `hash -r` and check with `type -a airelay`.
+    EOS
   end
 
   test do
