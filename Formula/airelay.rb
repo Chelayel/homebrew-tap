@@ -7,24 +7,24 @@
 # A formula, not a cask, on purpose: Homebrew does not quarantine what a formula
 # downloads, so the unsigned launcher runs without a Gatekeeper dialog.
 class Airelay < Formula
-  desc "Claude, Gemini and Copilot as CLI coding agents"
+  desc "Gemini on Vertex or Apigee for GitHub Copilot, plus Gemini and Copilot coding agents"
   homepage "https://github.com/Chelayel/ai-relay"
-  version "2.4.2"
+  version "2.4.3"
 
   on_macos do
     on_arm do
-      url "https://github.com/Chelayel/ai-relay/releases/download/v2.4.2/airelay-macos-arm64.tar.gz"
-      sha256 "f8bdf57eae7c7ea3aa1196321c970eeb92f5b21633ffa3394d03a117a8b24ad6"
+      url "https://github.com/Chelayel/ai-relay/releases/download/v2.4.3/airelay-macos-arm64.tar.gz"
+      sha256 "cdc497376f017116cb7b4811cffdc736fd3b4e166014a9f00a041c666fd72099"
     end
     on_intel do
-      url "https://github.com/Chelayel/ai-relay/releases/download/v2.4.2/airelay-macos-x64.tar.gz"
-      sha256 "e66ad9c1869d16388a264b0e989ceec38a9dc6d4b2c072a1274d958e8694f736"
+      url "https://github.com/Chelayel/ai-relay/releases/download/v2.4.3/airelay-macos-x64.tar.gz"
+      sha256 "effd4cf57e6ededc411c9a283e2fb82bc762cd90ae0c1413b570f8de943844fb"
     end
   end
 
   on_linux do
-    url "https://github.com/Chelayel/ai-relay/releases/download/v2.4.2/airelay-linux-x64.tar.gz"
-    sha256 "8e395dfd53fc4fe45966a4a4c4531037436a40d61611eb7e8d69fd2d5a28cce4"
+    url "https://github.com/Chelayel/ai-relay/releases/download/v2.4.3/airelay-linux-x64.tar.gz"
+    sha256 "6ea3d94b03fbfcde8186085d2cf27b7d63a97a3f15956f0d6cbac1d5d8ae9e9d"
   end
 
   def install
