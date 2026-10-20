@@ -9,22 +9,22 @@
 class Airelay < Formula
   desc "Gemini on Vertex or Apigee for GitHub Copilot, plus Gemini and Copilot coding agents"
   homepage "https://github.com/Chelayel/ai-relay"
-  version "2.4.3"
+  version "2.4.4"
 
   on_macos do
     on_arm do
-      url "https://github.com/Chelayel/ai-relay/releases/download/v2.4.3/airelay-macos-arm64.tar.gz"
-      sha256 "cdc497376f017116cb7b4811cffdc736fd3b4e166014a9f00a041c666fd72099"
+      url "https://github.com/Chelayel/ai-relay/releases/download/v2.4.4/airelay-macos-arm64.tar.gz"
+      sha256 "e0b9eb61d9f06637f834c3096a432771948f4ba38e090ea22c29bd6620fd0058"
     end
     on_intel do
-      url "https://github.com/Chelayel/ai-relay/releases/download/v2.4.3/airelay-macos-x64.tar.gz"
-      sha256 "effd4cf57e6ededc411c9a283e2fb82bc762cd90ae0c1413b570f8de943844fb"
+      url "https://github.com/Chelayel/ai-relay/releases/download/v2.4.4/airelay-macos-x64.tar.gz"
+      sha256 "fea4020aeb0f723fd9ebbf900bc876a434caa6e3df92cd64296d055e35a16675"
     end
   end
 
   on_linux do
-    url "https://github.com/Chelayel/ai-relay/releases/download/v2.4.3/airelay-linux-x64.tar.gz"
-    sha256 "6ea3d94b03fbfcde8186085d2cf27b7d63a97a3f15956f0d6cbac1d5d8ae9e9d"
+    url "https://github.com/Chelayel/ai-relay/releases/download/v2.4.4/airelay-linux-x64.tar.gz"
+    sha256 "aa623464b078244156a4516719fa544165b30cea8f3fd0d96f740fe445a5baec"
   end
 
   def install
