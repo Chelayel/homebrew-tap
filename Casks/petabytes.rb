@@ -1,8 +1,8 @@
 # The Homebrew cask for the Mac app. The release workflow fills in the version and the DMG's checksum and copies
 # it to Chelayel/homebrew-tap as Casks/petabytes.rb, so: brew install --cask chelayel/tap/petabytes
 cask "petabytes" do
-  version "1.8.1"
-  sha256 "27b5f2118c6839ee3ca0cd3c5ea5a917a678b177334cfa931039f15cffb1b7d7"
+  version "2.0.0"
+  sha256 "ae5571c41bd75bca187529971ad2c0a9a6fee5b5df9933dd96b7175b5e23e25e"
 
   url "https://github.com/Chelayel/petabytes/releases/download/v#{version}/Petabytes-#{version}.dmg"
   name "Petabytes"
